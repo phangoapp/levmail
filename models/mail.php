@@ -69,6 +69,7 @@ class AutoReply extends Webmodel {
         
         $this->register('subject', new CoreFields\CharField(), true);
         $this->register('text', new CoreFields\TextField(), true);
+        $this->register('activation', new CoreFields\BooleanField());
         $this->register('mailbox_id', new CoreFields\ForeignKeyField(new MailBox(), $size=11, 0, $named_field="mailbox", $select_fields=['IdMailbox']));
         
     }
