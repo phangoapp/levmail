@@ -36,9 +36,9 @@ function domain_options($url_options, $model_name, $id, $arr_row)
     
     $arr_options=[];
     
-    $arr_options[]='<a href="">'.I18n::lang('phangoapp/levmail', 'mailboxes', 'Mailboxes').'</a>';
+    $arr_options[]='<a href="'.AdminUtils::set_admin_link('levmail/mailboxes', ['domain_id' => $id]).'">'.I18n::lang('phangoapp/levmail', 'mailboxes', 'Mailboxes').'</a>';
     $arr_options[]='<a href="'.AdminUtils::set_admin_link('levmail/change_quota', ['domain_id' => $id]).'">'.I18n::lang('phangoapp/levmail', 'change_quota', 'Change quota').'</a>';
-    $arr_options[]='<a href="">'.I18n::lang('common', 'delete', 'Delete').'</a>';
+    $arr_options[]='<a href="'.AdminUtils::set_admin_link('levmail/delete_domain', ['domain_id' => $id]).'">'.I18n::lang('common', 'delete', 'Delete').'</a>';
     
     return $arr_options;
     

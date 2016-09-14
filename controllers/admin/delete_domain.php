@@ -6,14 +6,16 @@ use PhangoApp\PhaView\View;
 use PhangoApp\PhaLibs\SimpleList;
 use PhangoApp\Leviathan\ConfigTask;
 use PhangoApp\PhaLibs\AdminUtils;
+use PhangoApp\PhaI18n\I18n;
 
 Webmodel::load_model('vendor/phangoapp/leviathan/models/servers');
 Webmodel::load_model('vendor/phangoapp/leviathan/models/tasks');
 Webmodel::load_model('vendor/phangoapp/levmail/models/mail');
 
-function Change_quotaAdmin()
+function Delete_domainAdmin()
 {
     settype($_GET['domain_id'], 'integer');
+    settype($_GET['confirmed'], 'integer');
     
     $s=new Server();
     
@@ -26,32 +28,36 @@ function Change_quotaAdmin()
         
         $arr_server=$s->select_a_row($arr_domain['server']);
         
-        $domain->create_forms(['quota']);
-    
-        if(PhangoApp\PhaRouter\Routes::$request_method!='POST')
-        {
-            $domain->forms['quota']->default_value=$arr_domain['quota'];
-            
-            $forms=ModelForm::show_form($domain->forms, [], $pass_values=false, $check_values=false);
-    
-            echo View::load_view([$arr_domain, $forms], 'levmail/change_quota', 'phangoapp/levmail');
-        }
-        else
+        switch($_GET['confirmed'])
         {
             
-            list($domain->forms, $post)=ModelForm::check_form($domain->forms, $_POST);
+            default:
             
-            if($post)
-            {
-                
-                //Add task
+                ?>
+                <h2><?php echo $arr_server['hostname']; ?> - <?php echo $arr_domain['domain']; ?></h2>
+                <div class="form">
+                    <input type="button" id="delete_domain" name="delete_domain" value="<?php echo I18n::lang('phangoapp/levmail', 'you_are_sure_delete', 'Are you sure for delete domain?'); ?>" />
+                    <script>
+                        $('#delete_domain').click( function () {
+                            
+                            location.href='<?php echo AdminUtils::set_admin_link('levmail/delete_domain', ['domain_id' => $arr_domain['IdDomainmail'], 'confirmed' => 1]); ?>';
+                            
+                        });
+                    </script>
+                </div>
+                <?php
+            
+            break;
+            
+            case 1:
+            
                 $t=new Task();
                 
-                $post['domain_id']=$arr_domain['IdDomainmail'];
                 $post['domain']=$arr_domain['domain'];
+                $post['domain_id']=$arr_domain['IdDomainmail'];
                 $post['group']=$arr_domain['group'];
                 
-                $task_post=['name_task' => 'Change quota - '.$arr_domain['domain'], 'description_task' => 'Change quota of a domain in a server', 'codename_task' => 'change_quota_domain', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/change_quota', 'hostname' => $arr_server['hostname'], 'server' => $arr_server['ip'], 'os_codename' => $arr_server['os_codename']];
+                $task_post=['name_task' => 'Delete  domain - '.$arr_domain['domain'], 'description_task' => 'Delete domain', 'codename_task' => 'delete_domain', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/delete_domain', 'hostname' => $arr_server['hostname'], 'server' => $arr_server['ip'], 'os_codename' => $arr_server['os_codename']];
                 
                 $t->create_forms();
                 
@@ -65,24 +71,14 @@ function Change_quotaAdmin()
                         'query' => ['task_id' => $id, 'api_key' => ConfigTask::$api_key]
                     ]);
                     
-                    //http://localhost/leviathan/index.php/admin/leviathan/showprogress/get/task_id/201/server/192.168.2.5
-                    
                     die(header('Location: '.AdminUtils::set_admin_link('leviathan/showprogress', ['task_id' => $id, 'server' => $arr_server['ip']])));
                 }
-                
-                //echo $t->std_error;
-
-            }
-            else
-            {
-                
-                $forms=ModelForm::show_form($domain->forms, $_POST, $pass_values=true, $check_values=true);
-    
-                echo View::load_view([$arr_domain, $forms], 'levmail/change_quota', 'phangoapp/levmail');
-                
-            }
+            
+            break;
             
         }
+    
+        
     }
     
 }

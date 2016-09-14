@@ -28,10 +28,37 @@ class MailBox extends Webmodel {
     {
         
         $this->register('mailbox', new CoreFields\EmailField(), true);
-        $this->register('domain_id', new CoreFields\ForeignKeyField(new DomainMail(), $size=11, 0, $named_field="domain", $select_fields=['domain', 'quota']));
+        $this->register('domain_id', new CoreFields\ForeignKeyField(new DomainMail(), $size=11, 0, $named_field="domain", $select_fields=['domain', 'quota', 'ip']));
         $this->register('quota', new CoreFields\IntegerField());
         
     }
 
 }
+
+class MailAlias extends Webmodel {
+    
+    
+    public function load_components()
+    {
+        
+        $this->register('alias', new CoreFields\EmailField(), true);
+        $this->register('mailbox_id', new CoreFields\ForeignKeyField(new MailBox(), $size=11, 0, $named_field="mailbox", $select_fields=['IdMailbox']));
+        
+    }
+
+}
+
+class MailRedirection extends Webmodel {
+    
+    
+    public function load_components()
+    {
+        
+        $this->register('redirection', new CoreFields\EmailField(), true);
+        $this->register('mailbox_id', new CoreFields\ForeignKeyField(new MailBox(), $size=11, 0, $named_field="mailbox", $select_fields=['IdMailbox']));
+        
+    }
+
+}
+
 ?>
