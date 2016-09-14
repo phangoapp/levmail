@@ -46,6 +46,8 @@ function mailbox_options($url_options, $model_name, $id, $arr_row)
     
     $arr_options=[];
     
+    $arr_options[]='<a href="'.AdminUtils::set_admin_link('levmail/config', ['mailbox_id' => $id]).'">'.I18n::lang('phangoapp/levmail', 'configuration', 'Configuration').'</a>';
+    $arr_options[]='<a href="'.AdminUtils::set_admin_link('levmail/autoreply', ['mailbox_id' => $id]).'">'.I18n::lang('phangoapp/levmail', 'autoreply', 'Autoreply').'</a>';
     $arr_options[]='<a href="'.AdminUtils::set_admin_link('levmail/aliases', ['mailbox_id' => $id]).'">'.I18n::lang('phangoapp/levmail', 'aliases', 'Aliases').'</a>';
     $arr_options[]='<a href="'.AdminUtils::set_admin_link('levmail/redirections', ['mailbox_id' => $id]).'">'.I18n::lang('phangoapp/levmail', 'redirections', 'Redirections').'</a>';
     //$arr_options[]='<a href="'.AdminUtils::set_admin_link('levmail/autoreply', ['mailbox_id' => $id]).'">'.I18n::lang('phangoapp/levmail', 'autoreply', 'Autoreply').'</a>';

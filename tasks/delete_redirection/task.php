@@ -39,13 +39,13 @@ class ServerTask extends Task {
     public function post_task()
     {
         
-        $m=new MailAlias();
+        $m=new MailRedirection();
         
         $m->create_forms();
         
         $m->reset_require();
         
-        $m->where(['where alias=?', [$this->data['alias']]])->delete();
+        $m->where(['where redirection=?', [$this->data['redirection']]])->delete();
         
         return true;
         
