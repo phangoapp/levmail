@@ -61,4 +61,19 @@ class MailRedirection extends Webmodel {
 
 }
 
+class AutoReply extends Webmodel {
+    
+    
+    public function load_components()
+    {
+        
+        $this->register('subject', new CoreFields\CharField(), true);
+        $this->register('text', new CoreFields\TextField(), true);
+        $this->register('mailbox_id', new CoreFields\ForeignKeyField(new MailBox(), $size=11, 0, $named_field="mailbox", $select_fields=['IdMailbox']));
+        
+    }
+
+}
+
+
 ?>
