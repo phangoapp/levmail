@@ -5,6 +5,20 @@ use PhangoApp\PhaModels\CoreFields;
 
 Webmodel::load_model('vendor/phangoapp/leviathan/models/servers');
 
+class QuotaField extends CoreFields\IntegerField {
+    
+    public function show_formatted($value)
+    {
+        
+        settype($value, 'float');
+        
+        return $value.' Mb';
+        
+    }
+    
+}
+
+
 class DomainMail extends Webmodel {
     
     
@@ -15,7 +29,7 @@ class DomainMail extends Webmodel {
         $this->register('ip', new CoreFields\IpField(), true);
         $this->register('server', new CoreFields\ForeignKeyField(new Server(), $size=11, 0, $named_field="hostname", $select_fields=['ip', 'hostname', 'os_codename']));
         $this->register('group', new CoreFields\CharField(), true);
-        $this->register('quota', new CoreFields\IntegerField());
+        $this->register('quota', new QuotaField());
         
     }
         
@@ -29,7 +43,7 @@ class MailBox extends Webmodel {
         
         $this->register('mailbox', new CoreFields\EmailField(), true);
         $this->register('domain_id', new CoreFields\ForeignKeyField(new DomainMail(), $size=11, 0, $named_field="domain", $select_fields=['domain', 'quota', 'ip']));
-        $this->register('quota', new CoreFields\IntegerField());
+        $this->register('quota', new QuotaField());
         
     }
 

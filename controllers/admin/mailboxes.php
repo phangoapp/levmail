@@ -20,6 +20,8 @@ function MailBoxesAdmin()
     //($name, $value, $model, $field_name, $field_value)
     $form_domains=new PhangoApp\PhaModels\Forms\SelectModelForm('domain_id', $_GET['domain_id'], $d, 'domain', 'IdDomainmail');
     
+    $form_domains->empty_value=false;
+    
     $m=new MailBox();
     
     $list=new SimpleList($m, '');
@@ -28,10 +30,14 @@ function MailBoxesAdmin()
     {
         
         $list->where_sql=['where domain_id=?', [$arr_domain['IdDomainmail']]];
+        $list->arr_extra_fields=[I18n::lang('phangoapp/levmail', 'occupied_space', 'Occupied space')];
+        $list->arr_extra_fields_func=['size_space'];
         
     }
     
     $list->yes_search=1;
+    
+    $list->num_by_page=100;
     
     $list->arr_fields_showed=['mailbox', 'quota'];
     
@@ -39,6 +45,13 @@ function MailBoxesAdmin()
     
     echo View::load_view([$arr_domain, $list, $form_domains], 'levmail/mailboxes', 'phangoapp/levmail');
 
+}
+
+function size_space($arr_row)
+{
+    
+    return '<div id="mailbox_'.$arr_row['IdMailbox'].'" class="mailbox_calculate"><input type="hidden" class="mailbox_hash" id="mailbox_name_'.$arr_row['IdMailbox'].'" value="'.$arr_row['mailbox'].'" /><i class="fa fa-spinner fa-pulse fa-fw"></i><span class="sr-only">Loading...</span></div>';
+    
 }
 
 function mailbox_options($url_options, $model_name, $id, $arr_row)
