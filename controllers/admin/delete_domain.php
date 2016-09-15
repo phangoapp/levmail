@@ -28,6 +28,10 @@ function Delete_domainAdmin()
         
         $arr_server=$s->select_a_row($arr_domain['server']);
         
+        ?>
+        <p><a href="<?php echo AdminUtils::set_admin_link('levmail/servers', []); ?>"><?php echo I18n::lang('phangoapp/levmail', 'mail_servers', 'Mail servers'); ?></a> &gt;&gt; <a href="<?php echo AdminUtils::set_admin_link('levmail/domains', ['server_id' => $arr_server['IdServer']]); ?>"><?php echo $arr_server['hostname']; ?></a></p>
+        <?php
+        
         switch($_GET['confirmed'])
         {
             

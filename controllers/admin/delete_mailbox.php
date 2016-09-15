@@ -28,7 +28,10 @@ function Delete_mailboxAdmin()
     
         $arr_domain=$domain->select_a_row($arr_mailbox['domain_id']);
         
-        //Array ( [IdDomainmail] => 2 [domain] => coesinfo.com [ip] => 192.168.2.5 [server] => alpha.web-t-sys.com [group] => coesinfo [quota] => 600 [server_ip] => 192.168.2.5 [server_hostname] => alpha.web-t-sys.com [server_os_codename] => debian_jessie ) 
+         ?>
+        <p><a href="<?php echo AdminUtils::set_admin_link('levmail/servers', []); ?>"><?php echo I18n::lang('phangoapp/levmail', 'mail_servers', 'Mail servers'); ?></a> &gt;&gt; <a href="<?php echo AdminUtils::set_admin_link('levmail/domains', ['server_id' => $arr_domain['server_IdServer']]); ?>"><?php echo $arr_domain['server_hostname']; ?></a> &gt;&gt; <a href="<?php echo AdminUtils::set_admin_link('levmail/mailboxes', ['domain_id' => $arr_domain['IdDomainmail']]); ?>"><?php echo $arr_domain['domain']; ?></a></p>
+        <?php
+        
         switch($_GET['confirmed'])
         {
             

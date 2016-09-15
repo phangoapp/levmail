@@ -8,6 +8,7 @@ function MailBoxesView($arr_domain, $list, $form_domains)
 {
 
 ?>
+    <p><a href="<?php echo AdminUtils::set_admin_link('levmail/servers', []); ?>"><?php echo I18n::lang('phangoapp/levmail', 'mail_servers', 'Mail servers'); ?></a> &gt;&gt; <a href="<?php echo AdminUtils::set_admin_link('levmail/domains', ['server_id' => $arr_domain['server_IdServer']]); ?>"><?php echo $arr_domain['server_hostname']; ?></a></p>
     <p>
     <?php
     echo $form_domains->form();

@@ -28,6 +28,10 @@ function Change_quota_mailboxAdmin()
         
         $arr_domain=$domain->select_a_row($arr_mailbox['domain_id']);
         
+         ?>
+        <p><a href="<?php echo AdminUtils::set_admin_link('levmail/servers', []); ?>"><?php echo I18n::lang('phangoapp/levmail', 'mail_servers', 'Mail servers'); ?></a> &gt;&gt; <a href="<?php echo AdminUtils::set_admin_link('levmail/domains', ['server_id' => $arr_domain['server_IdServer']]); ?>"><?php echo $arr_domain['server_hostname']; ?></a> &gt;&gt; <a href="<?php echo AdminUtils::set_admin_link('levmail/mailboxes', ['domain_id' => $arr_domain['IdDomainmail']]); ?>"><?php echo $arr_domain['domain']; ?></a></p>
+        <?php
+        
         $max_quota=$arr_domain['quota']-get_max_quota($m, $arr_mailbox['domain_id']);
         
         $m->create_forms(['quota']);

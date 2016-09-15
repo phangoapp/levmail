@@ -33,6 +33,10 @@ function AutoreplyAdmin()
         
         $arr_domain=$d->select_a_row($arr_mailbox['domain_id']);
         
+        ?>
+        <p><a href="<?php echo AdminUtils::set_admin_link('levmail/servers', []); ?>"><?php echo I18n::lang('phangoapp/levmail', 'mail_servers', 'Mail servers'); ?></a> &gt;&gt; <a href="<?php echo AdminUtils::set_admin_link('levmail/domains', ['server_id' => $arr_domain['server_IdServer']]); ?>"><?php echo $arr_domain['server_hostname']; ?></a> &gt;&gt; <a href="<?php echo AdminUtils::set_admin_link('levmail/mailboxes', ['domain_id' => $arr_domain['IdDomainmail']]); ?>"><?php echo $arr_domain['domain']; ?></a></p>
+        <?php
+        
         $arr_reply=$a->where(['WHERE mailbox_id=?', [$arr_mailbox['IdMailbox']]])->select_a_row_where();
         
         $reply=[];

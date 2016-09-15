@@ -27,7 +27,7 @@ class DomainMail extends Webmodel {
         
         $this->register('domain', new CoreFields\DomainField(), true);
         $this->register('ip', new CoreFields\IpField(), true);
-        $this->register('server', new CoreFields\ForeignKeyField(new Server(), $size=11, 0, $named_field="hostname", $select_fields=['ip', 'hostname', 'os_codename']));
+        $this->register('server', new CoreFields\ForeignKeyField(new Server(), $size=11, 0, $named_field="hostname", $select_fields=['ip', 'hostname', 'os_codename', 'IdServer']));
         $this->register('group', new CoreFields\CharField(), true);
         $this->register('quota', new QuotaField());
         

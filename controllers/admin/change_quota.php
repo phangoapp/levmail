@@ -6,6 +6,7 @@ use PhangoApp\PhaView\View;
 use PhangoApp\PhaLibs\SimpleList;
 use PhangoApp\Leviathan\ConfigTask;
 use PhangoApp\PhaLibs\AdminUtils;
+use PhangoApp\PhaI18n\I18n;
 
 Webmodel::load_model('vendor/phangoapp/leviathan/models/servers');
 Webmodel::load_model('vendor/phangoapp/leviathan/models/tasks');
@@ -25,6 +26,10 @@ function Change_quotaAdmin()
     {
         
         $arr_server=$s->select_a_row($arr_domain['server']);
+        
+        ?>
+        <p><a href="<?php echo AdminUtils::set_admin_link('levmail/servers', []); ?>"><?php echo I18n::lang('phangoapp/levmail', 'mail_servers', 'Mail servers'); ?></a> &gt;&gt; <a href="<?php echo AdminUtils::set_admin_link('levmail/domains', ['server_id' => $arr_server['IdServer']]); ?>"><?php echo $arr_server['hostname']; ?></a></p>
+        <?php
         
         $domain->create_forms(['quota']);
     
