@@ -115,7 +115,7 @@ function Add_MailboxAdmin()
                     
                     unset($post['repeat_password']);
                     
-                    $task_post=['name_task' => 'Add new mailbox - '.$post['domain'], 'description_task' => 'Add a new mailbox in a server', 'codename_task' => 'add_mailbox', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/add_mailbox', 'hostname' => $arr_domain['server'], 'server' => $arr_domain['ip'], 'os_codename' => $arr_domain['server_os_codename']];
+                    $task_post=['name_task' => 'Add new mailbox - '.$post['domain'], 'description_task' => 'Add a new mailbox in a server', 'codename_task' => 'add_mailbox', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/add_mailbox', 'hostname' => $arr_domain['server'], 'server' => $arr_domain['ip'], 'os_codename' => $arr_domain['server_os_codename'], 'url_return' => AdminUtils::set_admin_link('levmail/mailboxes',['domain_id' => $arr_domain['IdDomainmail']]) ];
                     
                     $t->create_forms();
                     

@@ -24,7 +24,9 @@ function MailBoxesAdmin()
     
     $m=new MailBox();
     
-    $list=new SimpleList($m, '');
+    $list=new SimpleList($m);
+    
+    $list->url_options=AdminUtils::set_admin_link('levmail/mailboxes', ['domain_id' => $arr_domain['IdDomainmail']]);
     
     if($arr_domain)
     {
