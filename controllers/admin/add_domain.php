@@ -24,7 +24,7 @@ function Add_DomainAdmin()
         
         $domain=new DomainMail();
     
-        $domain->create_forms(['domain', 'group', 'quota']);
+        $domain->create_forms(['domain', 'group', 'alias_server', 'quota']);
     
         if(PhangoApp\PhaRouter\Routes::$request_method!='POST')
         {

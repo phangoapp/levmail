@@ -36,6 +36,13 @@ function Add_MailboxAdmin()
         $mailbox->forms['mailbox']->comment_form='@'.$arr_domain['domain'];
         
         $mailbox->forms['quota']->comment_form=I18n::lang('phangoapp/levmail', 'megabytes', 'Megabytes').' - '.I18n::lang('phangoapp/levmail', 'maximum_quota', 'Maximum quota').': '.$max_quota.' '.I18n::lang('phangoapp/levmail', 'megabytes', 'Megabytes');
+        
+        $mailbox->forms['password']=new PhangoApp\PhaModels\Forms\PasswordForm('password', '');
+        $mailbox->forms['password']->required=true;
+        $mailbox->forms['password']->label=I18n::lang('common', 'password', 'Password');
+        $mailbox->forms['repeat_password']=new PhangoApp\PhaModels\Forms\PasswordForm('repeat_password', '');
+        $mailbox->forms['repeat_password']->label=I18n::lang('common', 'repeat_password', 'Repeat password');
+        $mailbox->forms['repeat_password']->required=true;
     
         if(PhangoApp\PhaRouter\Routes::$request_method!='POST')
         {
@@ -53,8 +60,21 @@ function Add_MailboxAdmin()
             
             list($mailbox->forms, $post)=ModelForm::check_form($mailbox->forms, $_POST);
             
+            $_POST['mailbox']=$user;
+            
             if($post)
             {
+            
+                $p=0;
+                
+                if(trim($_POST['password'])!==trim($_POST['repeat_password']))
+                {
+                
+                    $mailbox->forms['password']->std_error=I18n::lang('phangoapp/levmail', 'password_not_match', 'Passwords doesnt match');
+                    
+                    $p=1;
+                
+                }
                 
                 $q=0;
                 
@@ -78,7 +98,7 @@ function Add_MailboxAdmin()
                     
                 }
                 
-                if($c==0 && $q==0)
+                if($c==0 && $q==0 && $p==0)
                 {
                 
                     //Add task
@@ -90,6 +110,10 @@ function Add_MailboxAdmin()
                     $post['server']=$arr_domain['server'];
                     $post['domain_id']=$arr_domain['IdDomainmail'];
                     $post['user']=explode('@', $post['mailbox'])[0];
+                    
+                    $post['password']=$_POST['password'];
+                    
+                    unset($post['repeat_password']);
                     
                     $task_post=['name_task' => 'Add new mailbox - '.$post['domain'], 'description_task' => 'Add a new mailbox in a server', 'codename_task' => 'add_mailbox', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/add_mailbox', 'hostname' => $arr_domain['server'], 'server' => $arr_domain['ip'], 'os_codename' => $arr_domain['server_os_codename']];
                     
@@ -125,7 +149,7 @@ function Add_MailboxAdmin()
             else
             {
                 
-                
+                $forms=ModelForm::show_form($mailbox->forms, $_POST, $pass_values=true, $check_values=true);
     
                 echo View::load_view([$arr_domain, $forms], 'levmail/add_mailbox', 'phangoapp/levmail');
                 

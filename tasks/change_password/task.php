@@ -16,11 +16,11 @@ class ServerTask extends Task {
         
         #THe files to delete
         
-        $this->name_task='Add new mailbox';
+        $this->name_task='Change password of mailbox';
         
-        $this->description_task='Add a new mailbox to Postifx mail server';
+        $this->description_task='Change password of mailbox in a postfix mail server';
         
-        $this->codename_task='add_mailbox';
+        $this->codename_task='change_password';
         
         $this->one_time=0;
         
@@ -30,7 +30,7 @@ class ServerTask extends Task {
     public function process_data()
     {
         
-        $this->commands_to_execute=[['sudo', 'vendor/phangoapp/leviathan/scripts/servers/mail/postfix/${os_server}/files/scripts/add_user.py', '--domain "'.$this->data['domain'].'" --user "'.$this->data['user'].'" --quota "'.$this->data['quota'].'" --password "'.$this->data['password'].'"']];
+        $this->commands_to_execute=[['sudo', 'vendor/phangoapp/leviathan/scripts/servers/mail/postfix/${os_server}/files/scripts/change_password.py', '--user "'.$this->data['user'].'" --password "'.$this->data['password'].'"']];
         
         return true;
         
@@ -39,13 +39,7 @@ class ServerTask extends Task {
     public function post_task()
     {
         
-        $m=new MailBox();
         
-        $m->create_forms();
-        
-        $m->insert($this->data);
-        
-        return true;
         
     }
     
