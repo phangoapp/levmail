@@ -111,7 +111,7 @@ function ConfigAdmin()
                         
                         unset($post['repeat_password']);
                         
-                        $task_post=['name_task' => 'Change password - '.$arr_mailbox['mailbox'], 'description_task' => 'Change password of mailbox', 'codename_task' => 'change_password_mailbox', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/change_password', 'hostname' => $arr_domain['server'], 'server' => $arr_domain['ip'], 'os_codename' => $arr_domain['server_os_codename']];
+                        $task_post=['name_task' => 'Change password - '.$arr_mailbox['mailbox'], 'description_task' => 'Change password of mailbox', 'codename_task' => 'change_password_mailbox', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/change_password', 'hostname' => $arr_domain['server'], 'server' => $arr_domain['ip'], 'os_codename' => $arr_domain['server_os_codename'], 'url_return' => AdminUtils::set_admin_link('levmail/config', ['mailbox_id' => $arr_mailbox['IdMailbox']])];
                     
                         $t=new Task();
                     

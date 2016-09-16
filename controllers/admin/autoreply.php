@@ -132,7 +132,7 @@ function AutoreplyAdmin()
                                 $post['mailbox']=$arr_mailbox['mailbox'];
                                 $post['hostname']=$arr_domain['server_hostname'];
                                 
-                                $task_post=['name_task' => 'Add autoreply - '.$arr_mailbox['mailbox'], 'description_task' => 'Delete autoreply of mailbox', 'codename_task' => 'delete_autoreply', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/delete_autoreply', 'hostname' => $arr_domain['server_hostname'], 'server' => $arr_domain['ip'], 'os_codename' => $arr_domain['server_os_codename']];
+                                $task_post=['name_task' => 'Add autoreply - '.$arr_mailbox['mailbox'], 'description_task' => 'Delete autoreply of mailbox', 'codename_task' => 'delete_autoreply', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/delete_autoreply', 'hostname' => $arr_domain['server_hostname'], 'server' => $arr_domain['ip'], 'os_codename' => $arr_domain['server_os_codename'], 'url_return' => AdminUtils::set_admin_link('levmail/mailboxes', ['domain_id' => $arr_domain['IdDomainmail']])];
                                 
                                 $t=new Task();
                                 
@@ -178,7 +178,7 @@ function AutoreplyAdmin()
                             $post['mailbox']=$arr_mailbox['mailbox'];
                             $post['hostname']=$arr_domain['server_hostname'];
                             
-                            $task_post=['name_task' => 'Add autoreply - '.$arr_mailbox['mailbox'], 'description_task' => 'Add autoreply to mailbox', 'codename_task' => 'add_autoreply', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/add_autoreply', 'hostname' => $arr_domain['server_hostname'], 'server' => $arr_domain['ip'], 'os_codename' => $arr_domain['server_os_codename']];
+                            $task_post=['name_task' => 'Add autoreply - '.$arr_mailbox['mailbox'], 'description_task' => 'Add autoreply to mailbox', 'codename_task' => 'add_autoreply', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/add_autoreply', 'hostname' => $arr_domain['server_hostname'], 'server' => $arr_domain['ip'], 'os_codename' => $arr_domain['server_os_codename'], 'url_return' => AdminUtils::set_admin_link('levmail/mailboxes', ['domain_id' => $arr_domain['IdDomainmail']])];
                             
                             $t=new Task();
                             

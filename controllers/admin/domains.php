@@ -19,7 +19,9 @@ function DomainsAdmin()
     
     $m=new DomainMail();
     
-    $list=new SimpleList($m, '');
+    $list=new SimpleList($m);
+    
+    $list->url_options=AdminUtils::set_admin_link('levmail/domains', ['server_id' => $arr_server['IdServer']]);
     
     $list->yes_search=1;
     

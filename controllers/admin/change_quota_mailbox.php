@@ -74,7 +74,7 @@ function Change_quota_mailboxAdmin()
                 $post['mailbox_id']=$arr_mailbox['IdMailbox'];
                 $post['user']=str_replace('@', '_', $arr_mailbox['mailbox']);
                 
-                $task_post=['name_task' => 'Change quota - '.$arr_mailbox['mailbox'], 'description_task' => 'Change quota of a mailbox in a server', 'codename_task' => 'change_quota_mailbox', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/change_quota_mailbox', 'hostname' => $arr_domain['server'], 'server' => $arr_domain['ip'], 'os_codename' => $arr_domain['server_os_codename']];
+                $task_post=['name_task' => 'Change quota - '.$arr_mailbox['mailbox'], 'description_task' => 'Change quota of a mailbox in a server', 'codename_task' => 'change_quota_mailbox', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/change_quota_mailbox', 'hostname' => $arr_domain['server'], 'server' => $arr_domain['ip'], 'os_codename' => $arr_domain['server_os_codename'], 'url_return' => AdminUtils::set_admin_link('levmail/change_quota_mailbox', ['mailbox_id' => $arr_mailbox['IdMailbox']])];
                 
                 $t->create_forms();
                 

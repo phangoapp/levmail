@@ -79,7 +79,7 @@ function AliasesAdmin()
                         $post['mailbox_id']=$arr_mailbox['IdMailbox'];
                         $post['mailbox']=$arr_mailbox['mailbox'];
                         
-                        $task_post=['name_task' => 'Add alias - '.$arr_mailbox['mailbox'], 'description_task' => 'Add alias to mailbox', 'codename_task' => 'add_alias', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/add_alias', 'hostname' => $arr_domain['server'], 'server' => $arr_domain['ip'], 'os_codename' => $arr_domain['server_os_codename']];
+                        $task_post=['name_task' => 'Add alias - '.$arr_mailbox['mailbox'], 'description_task' => 'Add alias to mailbox', 'codename_task' => 'add_alias', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/add_alias', 'hostname' => $arr_domain['server'], 'server' => $arr_domain['ip'], 'os_codename' => $arr_domain['server_os_codename'], 'url_return' => AdminUtils::set_admin_link('levmail/aliases', ['mailbox_id' => $arr_mailbox['IdMailbox']])];
                         
                         $t=new Task();
                         
@@ -161,7 +161,7 @@ function AliasesAdmin()
                 
                             $post['alias']=$arr_alias['alias'];
                             
-                            $task_post=['name_task' => 'Delete alias - '.$arr_alias['alias'], 'description_task' => 'Delete alias of mailbox', 'codename_task' => 'delete_alias', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/delete_alias', 'hostname' => $arr_domain['server'], 'server' => $arr_domain['ip'], 'os_codename' => $arr_domain['server_os_codename']];
+                            $task_post=['name_task' => 'Delete alias - '.$arr_alias['alias'], 'description_task' => 'Delete alias of mailbox', 'codename_task' => 'delete_alias', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/delete_alias', 'hostname' => $arr_domain['server'], 'server' => $arr_domain['ip'], 'os_codename' => $arr_domain['server_os_codename'], 'url_return' => AdminUtils::set_admin_link('levmail/aliases', ['mailbox_id' => $arr_mailbox['IdMailbox']])];
                             
                             
                             $t=new Task();

@@ -60,7 +60,7 @@ function Delete_mailboxAdmin()
                 $post['mailbox']=$arr_mailbox['mailbox'];
                 $post['mailbox_id']=$arr_mailbox['IdMailbox'];
                 
-                $task_post=['name_task' => 'Delete  mailbox - '.$arr_domain['domain'], 'description_task' => 'Delete mailbox', 'codename_task' => 'delete_mailbox', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/delete_mailbox', 'hostname' => $arr_domain['server'], 'server' => $arr_domain['server_ip'], 'os_codename' => $arr_domain['server_os_codename']];
+                $task_post=['name_task' => 'Delete  mailbox - '.$arr_domain['domain'], 'description_task' => 'Delete mailbox', 'codename_task' => 'delete_mailbox', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/delete_mailbox', 'hostname' => $arr_domain['server'], 'server' => $arr_domain['server_ip'], 'os_codename' => $arr_domain['server_os_codename'], 'url_return' => AdminUtils::set_admin_link('levmail/mailboxes', ['domain_id' => $arr_domain['IdDomainmail']])];
                 
                 $t->create_forms();
                 

@@ -6,6 +6,7 @@ use PhangoApp\PhaView\View;
 use PhangoApp\PhaLibs\SimpleList;
 use PhangoApp\Leviathan\ConfigTask;
 use PhangoApp\PhaLibs\AdminUtils;
+use PhangoApp\PhaI18n\I18n;
 
 Webmodel::load_model('vendor/phangoapp/leviathan/models/servers');
 Webmodel::load_model('vendor/phangoapp/leviathan/models/tasks');
@@ -30,6 +31,10 @@ function Add_DomainAdmin()
         {
     
             $forms=ModelForm::show_form($domain->forms, [], $pass_values=false, $check_values=false);
+            
+             ?>
+            <p><a href="<?php echo AdminUtils::set_admin_link('levmail/servers', []); ?>"><?php echo I18n::lang('phangoapp/levmail', 'mail_servers', 'Mail servers'); ?></a> &gt;&gt; <a href="<?php echo AdminUtils::set_admin_link('levmail/domains', ['server_id' => $arr_server['IdServer']]); ?>"><?php echo $arr_server['hostname']; ?></a></p>
+            <?php
     
             echo View::load_view([$arr_server, $forms], 'levmail/add_domain', 'phangoapp/levmail');
         }
@@ -52,7 +57,7 @@ function Add_DomainAdmin()
                     $post['ip']=$arr_server['ip'];
                     $post['server']=$arr_server['IdServer'];
                     
-                    $task_post=['name_task' => 'Add new domain - '.$post['domain'], 'description_task' => 'Add a new domain in a server', 'codename_task' => 'add_domain', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/add_domain', 'hostname' => $arr_server['hostname'], 'server' => $arr_server['ip'], 'os_codename' => $arr_server['os_codename']];
+                    $task_post=['name_task' => 'Add new domain - '.$post['domain'], 'description_task' => 'Add a new domain in a server', 'codename_task' => 'add_domain', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/add_domain', 'hostname' => $arr_server['hostname'], 'server' => $arr_server['ip'], 'os_codename' => $arr_server['os_codename'], 'url_return' => AdminUtils::set_admin_link('levmail/domains', ['server_id' => $arr_server['IdServer']])];
                     
                     $t->create_forms();
                     

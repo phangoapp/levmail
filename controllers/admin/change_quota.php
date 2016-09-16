@@ -56,7 +56,7 @@ function Change_quotaAdmin()
                 $post['domain']=$arr_domain['domain'];
                 $post['group']=$arr_domain['group'];
                 
-                $task_post=['name_task' => 'Change quota - '.$arr_domain['domain'], 'description_task' => 'Change quota of a domain in a server', 'codename_task' => 'change_quota_domain', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/change_quota', 'hostname' => $arr_server['hostname'], 'server' => $arr_server['ip'], 'os_codename' => $arr_server['os_codename']];
+                $task_post=['name_task' => 'Change quota - '.$arr_domain['domain'], 'description_task' => 'Change quota of a domain in a server', 'codename_task' => 'change_quota_domain', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/change_quota', 'hostname' => $arr_server['hostname'], 'server' => $arr_server['ip'], 'os_codename' => $arr_server['os_codename'], 'url_return' => AdminUtils::set_admin_link('levmail/change_quota', ['domain_id' => $arr_domain['IdDomainmail']])];
                 
                 $t->create_forms();
                 

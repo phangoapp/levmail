@@ -61,7 +61,7 @@ function Delete_domainAdmin()
                 $post['domain_id']=$arr_domain['IdDomainmail'];
                 $post['group']=$arr_domain['group'];
                 
-                $task_post=['name_task' => 'Delete  domain - '.$arr_domain['domain'], 'description_task' => 'Delete domain', 'codename_task' => 'delete_domain', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/delete_domain', 'hostname' => $arr_server['hostname'], 'server' => $arr_server['ip'], 'os_codename' => $arr_server['os_codename']];
+                $task_post=['name_task' => 'Delete  domain - '.$arr_domain['domain'], 'description_task' => 'Delete domain', 'codename_task' => 'delete_domain', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/delete_domain', 'hostname' => $arr_server['hostname'], 'server' => $arr_server['ip'], 'os_codename' => $arr_server['os_codename'], 'url_return' => AdminUtils::set_admin_link('levmail/domains', ['server_id' => $arr_server['IdServer']])];
                 
                 $t->create_forms();
                 

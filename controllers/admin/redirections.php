@@ -79,7 +79,7 @@ function RedirectionsAdmin()
                         $post['mailbox_id']=$arr_mailbox['IdMailbox'];
                         $post['mailbox']=$arr_mailbox['mailbox'];
                         
-                        $task_post=['name_task' => 'Add redirection - '.$arr_mailbox['mailbox'], 'description_task' => 'Add redirection to mailbox', 'codename_task' => 'add_redirection', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/add_redirections', 'hostname' => $arr_domain['server'], 'server' => $arr_domain['ip'], 'os_codename' => $arr_domain['server_os_codename']];
+                        $task_post=['name_task' => 'Add redirection - '.$arr_mailbox['mailbox'], 'description_task' => 'Add redirection to mailbox', 'codename_task' => 'add_redirection', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/add_redirections', 'hostname' => $arr_domain['server'], 'server' => $arr_domain['ip'], 'os_codename' => $arr_domain['server_os_codename'], 'url_return' => AdminUtils::set_admin_link('levmail/redirections', ['mailbox_id' => $arr_mailbox['IdMailbox']])];
                         
                         $t=new Task();
                         
@@ -162,7 +162,7 @@ function RedirectionsAdmin()
                             $post['redirection']=$arr_redirection['redirection'];
                             $post['mailbox']=$arr_mailbox['mailbox'];
                             
-                            $task_post=['name_task' => 'Delete redirection - '.$arr_redirection['redirection'], 'description_task' => 'Delete redirection of mailbox', 'codename_task' => 'delete_redirection', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/delete_redirection', 'hostname' => $arr_domain['server'], 'server' => $arr_domain['ip'], 'os_codename' => $arr_domain['server_os_codename']];
+                            $task_post=['name_task' => 'Delete redirection - '.$arr_redirection['redirection'], 'description_task' => 'Delete redirection of mailbox', 'codename_task' => 'delete_redirection', 'data' => $post, 'path' => 'vendor/phangoapp/levmail/tasks/delete_redirection', 'hostname' => $arr_domain['server'], 'server' => $arr_domain['ip'], 'os_codename' => $arr_domain['server_os_codename'], 'url_return' => AdminUtils::set_admin_link('levmail/redirections', ['mailbox_id' => $arr_mailbox['IdMailbox']])];
                             
                             
                             $t=new Task();
