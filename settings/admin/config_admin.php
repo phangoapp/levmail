@@ -1,5 +1,8 @@
 <?php
 
+PhangoApp\PhaI18n\I18n::load_lang('phangoapp/leviathan');
+PhangoApp\PhaI18n\I18n::load_lang('phangoapp/levmail');
+
 ModuleAdmin::$arr_modules_admin[]=[ 'levmail', [
 array('levmail/servers', 'vendor/phangoapp/levmail/controllers/admin/servers', PhangoApp\PhaI18n\I18n::lang('phangoapp/levmail', 'mail_servers', 'Mail servers') ) , 
 array('levmail/domains', 'vendor/phangoapp/levmail/controllers/admin/domains', PhangoApp\PhaI18n\I18n::lang('phangoapp/levmail', 'domains', 'Domains')), 

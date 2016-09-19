@@ -2,87 +2,87 @@
 
 use PhangoApp\PhaI18n\I18n;
 
-I18n::$lang['phangoapp/levmail']['mail_servers']='Mail servers';
+I18n::$lang['phangoapp/levmail']['mail_servers']='Servidores de email';
 
 I18n::$lang['phangoapp/levmail']['megabytes']='Megabytes';
 
-I18n::$lang['phangoapp/levmail']['maximum_quota']='Maximum quota';
+I18n::$lang['phangoapp/levmail']['maximum_quota']='Cuota máxima';
 
-I18n::$lang['phangoapp/levmail']['password_not_match']='Passwords doesnt match';
+I18n::$lang['phangoapp/levmail']['password_not_match']='Contraseñas no coinciden';
 
-I18n::$lang['phangoapp/levmail']['maximum:quota_overload']='Maximum quota overload';
+I18n::$lang['phangoapp/levmail']['maximum:quota_overload']='Máxima cuota sobrepasada';
 
-I18n::$lang['phangoapp/levmail']['mailbox_exists']='A mailbox with this name exists';
+I18n::$lang['phangoapp/levmail']['mailbox_exists']='Existe una cuenta de email con ese nombre';
 
-I18n::$lang['phangoapp/levmail']['error_alias_exists']='Exista an alias with this name';
+I18n::$lang['phangoapp/levmail']['error_alias_exists']='Existe un alias con ese nombre';
 
-I18n::$lang['phangoapp/levmail']['you_are_sure_delete_alias']='Are you sure for delete alias?';
+I18n::$lang['phangoapp/levmail']['you_are_sure_delete_alias']='¿Seguro que quieres borrar ese alias?';
 
-I18n::$lang['phangoapp/levmail']['aliases']='Aliases';
+I18n::$lang['phangoapp/levmail']['aliases']='Alias';
 
-I18n::$lang['phangoapp/levmail']['autoreply']='Autoreply';
+I18n::$lang['phangoapp/levmail']['autoreply']='Autoresponder';
 
-I18n::$lang['phangoapp/levmail']['change_quota']='Change quota';
+I18n::$lang['phangoapp/levmail']['change_quota']='Cambiar cuota';
 
-I18n::$lang['phangoapp/levmail']['activation']='Activate autoreply';
+I18n::$lang['phangoapp/levmail']['activation']='Activar autoresponder';
 
-I18n::$lang['phangoapp/levmail']['send_autoreply']='Send autoreply';
+I18n::$lang['phangoapp/levmail']['send_autoreply']='Enviar autoresponder';
 
-I18n::$lang['phangoapp/levmail']['smtp_server']='SMTP server';
+I18n::$lang['phangoapp/levmail']['smtp_server']='Servidor SMTP';
 
-I18n::$lang['phangoapp/levmail']['imap_server']='IMAP server';
+I18n::$lang['phangoapp/levmail']['imap_server']='Servidor IMAP';
 
-I18n::$lang['phangoapp/levmail']['pop3_server']='POP3 server';
+I18n::$lang['phangoapp/levmail']['pop3_server']='Servidor POP3';
 
-I18n::$lang['phangoapp/levmail']['username']='Username';
+I18n::$lang['phangoapp/levmail']['username']='Nombre de usuario';
 
-I18n::$lang['phangoapp/levmail']['you_are_sure_delete']='Are you sure for delete domain?';
+I18n::$lang['phangoapp/levmail']['you_are_sure_delete']='¿Estás seguro de que quieres borrar ese dominio?';
 
-I18n::$lang['phangoapp/levmail']['mailboxes']='Mailboxes';
+I18n::$lang['phangoapp/levmail']['mailboxes']='Cuentas de email';
 
-I18n::$lang['phangoapp/levmail']['occupied_space']='Occupied space';
+I18n::$lang['phangoapp/levmail']['occupied_space']='Espacio ocupado';
 
-I18n::$lang['phangoapp/levmail']['configuration']='Configuration';
+I18n::$lang['phangoapp/levmail']['configuration']='Configuración';
 
-I18n::$lang['phangoapp/levmail']['redirections']='Redirections';
+I18n::$lang['phangoapp/levmail']['redirections']='Redirecciones';
 
-I18n::$lang['phangoapp/levmail']['error_redirection_exists']='Exista an redirection with this name';
+I18n::$lang['phangoapp/levmail']['error_redirection_exists']='Existe una redirección con ese nombre';
 
-I18n::$lang['phangoapp/levmail']['you_are_sure_delete_redirection']='Are you sure for delete redirection?';
+I18n::$lang['phangoapp/levmail']['you_are_sure_delete_redirection']='¿Seguro que quieres borrar redirección?';
 
-I18n::$lang['phangoapp/levmail']['domains']='Domains';
+I18n::$lang['phangoapp/levmail']['domains']='Dominios';
 
-I18n::$lang['phangoapp/levmail']['add_domain']='Add domain';
+I18n::$lang['phangoapp/levmail']['add_domain']='Añadir dominio';
 
-I18n::$lang['phangoapp/levmail']['delete_domain']='Delete domain';
+I18n::$lang['phangoapp/levmail']['delete_domain']='Borrar dominio';
 
-I18n::$lang['phangoapp/levmail']['add_mailbox']='Add mailbox';
+I18n::$lang['phangoapp/levmail']['add_mailbox']='Añadir cuenta de email';
 
-I18n::$lang['phangoapp/levmail']['delete_mailbox']='Delete mailbox';
+I18n::$lang['phangoapp/levmail']['delete_mailbox']='Borrar cuenta';
 
-I18n::$lang['phangoapp/levmail']['change_quota_mailbox']='Change Mailbox quota';
+I18n::$lang['phangoapp/levmail']['change_quota_mailbox']='Cambiar cuota de buzón';
 
-I18n::$lang['phangoapp/levmail']['getquotas']='Get quotas';
+I18n::$lang['phangoapp/levmail']['getquotas']='Obtener cuotas';
 
-I18n::$lang['phangoapp/levmail']['config']='Configuration';
+I18n::$lang['phangoapp/levmail']['config']='Configuración';
 
 I18n::$lang['phangoapp/levmail']['mail']='Mail';
 
 I18n::$lang['phangoapp/levmail']['alias']='Alias';
 
-I18n::$lang['phangoapp/levmail']['add_alias']='Add alias';
+I18n::$lang['phangoapp/levmail']['add_alias']='Añadir alias';
 
-I18n::$lang['phangoapp/levmail']['add_new_domain']='Add new domain';
+I18n::$lang['phangoapp/levmail']['add_new_domain']='Añadir nuevo dominio';
 
-I18n::$lang['phangoapp/levmail']['add_new_mailbox']='Add new mailbox';
+I18n::$lang['phangoapp/levmail']['add_new_mailbox']='Añadir nueva cuenta de email';
 
-I18n::$lang['phangoapp/levmail']['redirection']='Redirection';
+I18n::$lang['phangoapp/levmail']['redirection']='Redirección';
 
-I18n::$lang['phangoapp/levmail']['add_redirection']='Add redirection';
+I18n::$lang['phangoapp/levmail']['add_redirection']='Añadir redirección';
 
-I18n::$lang['phangoapp/levmail']['change_mailbox_password']='Change mailbox password';
+I18n::$lang['phangoapp/levmail']['change_mailbox_password']='Cambiar password de email';
 
-I18n::$lang['phangoapp/levmail']['healthy_mail_servers']='Healthy of mail servers';
+I18n::$lang['phangoapp/levmail']['healthy_mail_servers']='Salud de servidores de email';
 
-I18n::$lang['phangoapp/levmail']['add_redirections']='Add redirections';
+I18n::$lang['phangoapp/levmail']['add_redirections']='Añadir redirecciones';
 
