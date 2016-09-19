@@ -1,0 +1,18 @@
+{
+    "name": "phangoapp/levmail",
+    "description": "Module for administer a mail server",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Antonio de la Rosa",
+            "email": "webmaster@web-t-sys.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "PhangoApp\\LevMail\\": "src"
+        }
+    }
+}
