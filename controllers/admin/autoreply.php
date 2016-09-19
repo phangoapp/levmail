@@ -58,7 +58,7 @@ function AutoreplyAdmin()
                 
         $a->forms['activation']=new PhangoApp\PhaModels\Forms\SelectForm('activation', $arr_reply['activation'], $arr_select=[0 => I18n::lang('common', 'no', 'No'), 1 => I18n::lang('common', 'yes', 'Yes')]);
         
-        $a->forms['activation']->label=I18n::lang('phangoapp\levmail', 'activation', 'Activate autoreply');
+        $a->forms['activation']->label=I18n::lang('phangoapp/levmail', 'activation', 'Activate autoreply');
         
         $url_post=AdminUtils::set_admin_link('levmail\autoreply', ['op' => 1, 'mailbox_id' => $arr_mailbox['IdMailbox']]);
         

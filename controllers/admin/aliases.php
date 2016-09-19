@@ -115,7 +115,7 @@ function AliasesAdmin()
                 else
                 {
                     
-                    $a->forms['alias']->std_error=I18n::lang('phangoapp\levmail', 'error_alias_exists', 'Exista an alias with this name');
+                    $a->forms['alias']->std_error=I18n::lang('phangoapp/levmail', 'error_alias_exists', 'Exista an alias with this name');
                     
                     $form=ModelForm::show_form($a->forms, $_POST, $pass_values=true, $check_values=true);
             

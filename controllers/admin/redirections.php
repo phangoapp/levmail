@@ -115,7 +115,7 @@ function RedirectionsAdmin()
                 else
                 {
                     
-                    $r->forms['redirection']->std_error=I18n::lang('phangoapp\levmail', 'error_redirection_exists', 'Exista an redirection with this name');
+                    $r->forms['redirection']->std_error=I18n::lang('phangoapp/levmail', 'error_redirection_exists', 'Exista an redirection with this name');
                     
                     $form=ModelForm::show_form($r->forms, $_POST, $pass_values=true, $check_values=true);
             
