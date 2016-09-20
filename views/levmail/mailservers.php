@@ -37,7 +37,7 @@ function MailServersView($servers)
         
         SimpleTable::header_middle_table_config([I18n::lang('phangoapp/leviathan', 'memory_used', 'Memory used'), I18n::lang('common', 'options', 'Options')], $cell_sizes=array());
         
-        $url_domains='<a href="'.PhangoApp\PhaLibs\AdminUtils::set_admin_link('levmail/domains', ['server_id' => $server['server_id_IdServer']]).'">'.I18n::lang('phangoapp\leviathan', 'domains', 'Domains').'</a>';
+        $url_domains='<a href="'.PhangoApp\PhaLibs\AdminUtils::set_admin_link('levmail/domains', ['server_id' => $server['server_id_IdServer']]).'">'.I18n::lang('phangoapp/leviathan', 'domains', 'Domains').'</a>';
         
         $memory_usage='<strong>'.Size::format($server['memory_id_free']).' '.I18n::lang('phangoapp/leviathan', 'free', 'free').'</strong> | '.Size::format($server['memory_id_used']).' '.I18n::lang('phangoapp/leviathan', 'used', 'used').' | '.Size::format($server['memory_id_cached']).' '.I18n::lang('phangoapp/leviathan', 'cached', 'cached');
         
