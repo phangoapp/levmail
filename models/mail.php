@@ -2,6 +2,7 @@
 
 use PhangoApp\PhaModels\Webmodel;
 use PhangoApp\PhaModels\CoreFields;
+use PhangoApp\PhaI18n\I18n;
 
 Webmodel::load_model('vendor/phangoapp/leviathan/models/servers');
 
@@ -12,7 +13,16 @@ class QuotaField extends CoreFields\IntegerField {
         
         settype($value, 'float');
         
-        return $value.' Mb';
+        $return_text=I18n::lang('phangoapp\levmail', 'unlimited', 'Unlimited');
+        
+        if($value>0)
+        {
+        
+            $return_text=$value.' Mb';
+            
+        }
+        
+        return $return_text;
         
     }
     
