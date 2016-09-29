@@ -50,6 +50,8 @@ function RedirectionsAdmin()
                 
                 $list->options_func='redirection_options';
                 
+                $list->where_sql=['WHERE mailbox_id=?', [$arr_mailbox['IdMailbox']]];
+                
                 echo View::load_view([$arr_mailbox, $list], 'levmail/redirections', 'phangoapp/levmail');
 
             break;

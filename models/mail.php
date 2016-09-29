@@ -86,6 +86,19 @@ class MailRedirection extends Webmodel {
 
 }
 
+class MailRedirectionDomain extends Webmodel {
+    
+    
+    public function load_components()
+    {
+        
+        $this->register('mailbox', new CoreFields\EmailField(), true);
+        $this->register('redirection', new CoreFields\EmailField(), true);
+        
+    }
+
+}
+
 class AutoReply extends Webmodel {
     
     

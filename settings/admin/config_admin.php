@@ -15,6 +15,7 @@ array('levmail/delete_mailbox', 'vendor/phangoapp/levmail/controllers/admin/dele
 array('levmail/change_quota_mailbox', 'vendor/phangoapp/levmail/controllers/admin/change_quota_mailbox', PhangoApp\PhaI18n\I18n::lang('phangoapp/levmail', 'change_quota_mailbox', 'Change Mailbox quota'), '' ),
 array('levmail/aliases', 'vendor/phangoapp/levmail/controllers/admin/aliases', PhangoApp\PhaI18n\I18n::lang('phangoapp/levmail', 'aliases', 'Aliases'), '' ),
 array('levmail/redirections', 'vendor/phangoapp/levmail/controllers/admin/redirections', PhangoApp\PhaI18n\I18n::lang('phangoapp/levmail', 'redirections', 'Redirections'), '' ),
+array('levmail/redirectionsalone', 'vendor/phangoapp/levmail/controllers/admin/redirectionsalone', PhangoApp\PhaI18n\I18n::lang('phangoapp/levmail', 'redirections', 'Redirections'), '' ),
 array('levmail/autoreply', 'vendor/phangoapp/levmail/controllers/admin/autoreply', PhangoApp\PhaI18n\I18n::lang('phangoapp/levmail', 'autoreply', 'Autoreply'), '' ),
 array('levmail/getquotas', 'vendor/phangoapp/levmail/controllers/admin/getquotas', PhangoApp\PhaI18n\I18n::lang('phangoapp/levmail', 'getquotas', 'Get quotas'), '' ),
 array('levmail/config', 'vendor/phangoapp/levmail/controllers/admin/config', PhangoApp\PhaI18n\I18n::lang('phangoapp/levmail', 'config', 'Configuration'), '' )
