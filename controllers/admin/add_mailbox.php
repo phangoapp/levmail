@@ -78,7 +78,7 @@ function Add_MailboxAdmin()
                 
                 $q=0;
                 
-                if($post['quota']>$max_quota)
+                if($post['quota']>$max_quota && $max_quota>0)
                 {
                     
                     $mailbox->forms['quota']->required=true;
