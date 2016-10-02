@@ -85,7 +85,7 @@ if($arr_domain)
         {
                                 
             $.ajax({
-                url: "<?php echo AdminUtils::set_admin_link('leviathan/showprogress', ['op' => 1, 'server' => $arr_domain['ip']]); ?>/position/0/task_id/"+task_id,
+                url: "<?php echo AdminUtils::set_admin_link('leviathan/showprogress', ['op' => 1, 'server' => $arr_domain['ip']]); ?>/position/1/task_id/"+task_id,
                 method: "GET",
                 dataType: "json",
                 data: {}
