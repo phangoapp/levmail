@@ -99,16 +99,24 @@ if($arr_domain)
                     }
                     else
                     {
+                        if(data.length>0)
+                        {
                         
-                        mailbox=JSON.parse(data[0]['data']);
-                        
-                        for(x in mailbox)
+                            mailbox=JSON.parse(data[0]['data']);
+                            
+                            for(x in mailbox)
+                            {
+                                
+                                $('#mailbox_'+mailbox_hash[x]).html(mailbox[x]);
+                                
+                            }
+                        }
+                        else
                         {
                             
-                            $('#mailbox_'+mailbox_hash[x]).html(mailbox[x]);
+                            setTimeout(get_quota, 1000);
                             
                         }
-                        
                     }
                     
                 
