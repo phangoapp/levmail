@@ -56,7 +56,9 @@ function Add_MailboxAdmin()
             
             $user=$_POST['mailbox'];
             
-            $_POST['mailbox']=$_POST['mailbox'].'@'.$arr_domain['domain'];
+            $mailbox_address=$_POST['mailbox'].'@'.$arr_domain['domain'];
+            
+            $_POST['mailbox']=$mailbox_address;
             
             list($mailbox->forms, $post)=ModelForm::check_form($mailbox->forms, $_POST);
             
@@ -98,7 +100,21 @@ function Add_MailboxAdmin()
                     
                 }
                 
-                if($c==0 && $q==0 && $p==0)
+                $l=0;
+                
+                $len=strlen($mailbox_address);
+                
+                if($len>32)
+                {
+                    
+                    $mailbox->forms['mailbox']->std_error=I18n::lang('phangoapp/levmail', 'mailbox_size_wrong', 'Sorry, the length of name user is bigger to 32 characters');
+                    $mailbox->forms['mailbox']->default_value=$user;
+                    
+                    $l=1;
+                    
+                }
+                
+                if($c==0 && $q==0 && $p==0 && $l==0)
                 {
                 
                     //Add task
